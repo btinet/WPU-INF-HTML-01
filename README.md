@@ -1,5 +1,5 @@
 # WPU-INF-HTML-01
- ## Einführungsprojekt HTML
+## Einführungsprojekt HTML
 
 1. [HTML Grundlagen](#html-grundlagen)
 2. Head
