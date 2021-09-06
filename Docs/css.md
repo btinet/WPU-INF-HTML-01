@@ -32,30 +32,71 @@ h1 { color:red; font-size:48px; }
 ````
 Im obigen Beispiel haben alle Überschriften **h1** eine **rote Textfarbe** und eine **Schriftgröße von 48px**.
 
-### Selektor:
-
-Als **Selektoren** wird das bezeichnet, was vor den geschweiften Klammern steht. Ein
-Selektor wählt aus, wofür die folgenden Definitionen gelten sollen. Im obigen Beispiel
-gelten die Formate für alle Überschriften 1. Ordnung (h1-Elemente). Es sind jedoch
-auch komplexere Selektoren möglich sowie mehrere, durch Komma getrennte
-Selektoren.
-
-### Definitionen:
-
-Die eigentlichen Definitionen zum Format stehen stets in geschweiften Klammern
-``{`` und ``}``. Sie bestehen darin, dass eine oder mehrere CSS-Eigenschaften notiert
-werden und einen Wert erhalten. Im obigen Beispiel werden etwa die CSS-Eigenschaften
-color (Schriftfarbe) und font-size (Schriftgröße) verwendet. Der
-Eigenschaft color wird der Wert red zugewiesen, und der Eigenschaft font-size der Wert
-48px. Zwischen Eigenschaft und Wertzuweisung muss stets ein Doppelpunkt stehen.
-Abgeschlossen wird eine Definition mit einem Strichpunkt ``;``. Nur bei der letzten
-Definition vor der schließenden geschweiften Klammer darf der Strichpunkt auch
-entfallen.
-
 ##  CSS in HTML einbinden
 
 ### Direkt im Quellcode
+Im folgenden Beispiel haben wir die CSS-Informationen direkt im ``<h1>``-Tag geschrieben.
+````html
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+    </head>
+    <body>
+        <h1 style="color: red;font-size: 48px">Titel der Website</h1>
+        <p>Dies ist ein Absatz</p>
+    </body>
+</html>
+````
 
 ### Im HTML-Kopf
+````html
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <style>
+            h1{color: red;font-size: 48px}
+        </style>
+    </head>
+    <body>
+        <h1>Titel der Website</h1>
+        <p>Dies ist ein Absatz</p>
+    </body>
+</html>
+````
 
 ### Ausgelagert
+Die dritte variante trennt HTML und CSS am deutlichsten.
+
+Die [HTML-Datei](../html/css_grundlagen_ausgelagert.html):
+````html
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <link href="../assets/styles/css_grundlagen.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Titel der Website</h1>
+        <p>Dies ist ein Absatz</p>
+    </body>
+</html>
+````
+Die [CSS-Datei](../assets/styles/css_grundlagen.css):
+````css
+h1
+{
+    color: red;
+    font-size: 48px
+}
+````
