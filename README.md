@@ -1,22 +1,7 @@
-# WPU-INF-HTML-01
-## Einführungsprojekt HTML
+# Informatik Einführungskurs 1
 
-1. [HTML Grundlagen](#html-grundlagen)
-2. Head
-3. Body
+## Übersicht
 
-### HTML Grundlagen
-Beispiel einer HTML-Datei:
-````html
-<!-- index.html /-->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Dokumententitel</title>
-    </head>
-    <body>
-        <h1>Tabellenüberschrift</h1>
-        <p>Absatz</p>
-    </body>
-</html>
-````
+1. [HTML](./Docs/html.md)
+2. [CSS](./Docs/css.md)
+
