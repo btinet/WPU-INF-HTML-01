@@ -4,7 +4,7 @@
 
 1.  [HTML](./Docs/html.md)
     1.  [Grundgerüst](./Docs/html.md#html-grundlagen)
-    2.  [Head](./Docs/html.md#hhead)
+    2.  [Head](./Docs/html.md#head)
     3.  [Body](./Docs/html.md#body)
     
 2.  HTML-Komponenten
