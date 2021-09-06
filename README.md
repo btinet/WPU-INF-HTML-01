@@ -3,9 +3,9 @@
 ## Übersicht
 
 1.  [HTML](./Docs/html.md)
-    1.  Grundgerüst
-    2.  Head
-    3.  Body
+    1.  [Grundgerüst](./Docs/html.md#html-grundlagen)
+    2.  [Head](./Docs/html.md#hhead)
+    3.  [Body](./Docs/html.md#body)
     
 2.  HTML-Komponenten
     1.  Typographie
