@@ -13,6 +13,7 @@
     3.  Formulare
     
 3.  [CSS](./Docs/css.md)
-    1.  Geschichte
-    2.  Styles definieren
+    1.  [Entstehung](./Docs/css.md#entstehung)
+    2.  [Trennung von Inhalt und Design](./Docs/css.md#trennung-von-inhalt-und-design)
+    3.  [Aufbau von CSS](./Docs/css.md#aufbau-von-css)
 
