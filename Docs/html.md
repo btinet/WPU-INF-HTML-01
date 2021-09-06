@@ -4,7 +4,7 @@
 
 1. [HTML Grundlagen](#html-grundlagen)
 2. [Head](#head)
-3. Body
+3. [Body](#body)
 
 ## HTML Grundlagen
 HTML steht für ``Hypertext Markup Language`` und stellt damit eine grundlegende Auszeichnungssprache für die formatierte Darstellung von textbasierten Inhalten in Webbrowsern dar.
@@ -51,3 +51,65 @@ Zwischen ``<html>`` und ``</html>`` (Innerhalb des <html>-Tags), werden wir zwei
 Wir schauen uns zuerst den ``HTML-Kopf`` an.
 
 ## Head
+````html
+<head>
+    <meta charset="UTF-8" />
+    <title>Titel</title>
+</head>
+````
+Im HTML-Kopf stehen Angaben, die das HTML-Dokument näher beschreiben. Neben Informationen für den Browser oder Suchmaschinen werden hier etwa auch ausgelagerte sogenannte ``Style Sheets`` eingebunden. Dazu später mehr. Innerhalb des ``<head>``-Tags im o. a. Beispiel befinden sich zwei weitere Tags, nämlich ``<meta></meta>`` und ``<title></title>``.
+
+Das ``<meta>``-Tag hat das Attribut charset mit dem Wert ``UTF-8``. Charset gibt an, mit welcher Zeichencodierung das Dokument gelesen werden soll.
+
+Theoretisch sind unendlich viele weitere ``<mtea>``-Tags möglich, die alle nach dem gleichen Prinzip aufgebaut sind:
+````html
+<meta name="Name des Meta-Attributs" content="Attributwert des Meta-Attributs" />
+````
+Wie du siehst, hat das ``<mtea>``-Tag normalerweise zwei Attribute, nämlich:
+
+1. ``name`` gibt an, wie das aktuelle Meta-Attribut benannt sein soll
+2. ``content`` gibt an, welchen Inhalt/Wert das aktuelle Meta-Attribut haben soll
+
+Beispiel:
+````html
+<meta name="title" content="Titel der Website" />
+<meta name="description" content="Inhaltsbeschreibung der Website" />
+````
+Das ``<title>``-Tag wird benutzt, um den Titel der HTML-Datei anzugeben. Dieser wird in der Titelleiste des Browsers angezeigt.
+````html
+<title>Titel der Website</title>
+````
+Bis hierhin sieht unsere [html-Datei](../html/html_grundlagen_head.html) folgendermaßen aus:
+````html
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+    </head>
+</html>
+````
+## Body
+Innerhalb des ``<body>``-Tags wird alles hineingeschrieben, das dann auch tatsächlich im Browser angezeigt werden soll.
+````html
+<body>
+    Sichtbare Inhalte der Website
+</body>
+````
+Unser gesamtes [Dokument](../html/html_grundlagen.html) sieht, wenn wir alles richtig gemacht haben, so aus:
+````html
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+    </head>
+    <body>
+        Sichtbare Inhalte der Website
+    </body>
+</html>
+````
