@@ -1,0 +1,14 @@
+// Colors
+$red:  rgb(220,20,60);
+
+// Fonts
+$font-size-base:  1rem;
+$headings-font-size-base: $font-size-base * 1.5;
+
+// Headings
+@for $i from 1 through 6 {
+  h#{$i} {
+    color: lighten($red, $i * 2%);
+    font-size: $headings-font-size-base - ($i /10);
+  }
+}
