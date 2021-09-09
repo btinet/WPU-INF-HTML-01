@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <link href="../assets/styles/scss_grundlagen.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container">
+        <h1>Titel der Website</h1>
+        <p class="lead">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam <span class="text-primary">gubergren</span> eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <h2>Untertitel</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata <span class="text-emphasised">sanctus</span> est <span class="text-italic">Lorem ipsum</span> dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <h3>Weiterer Unterpunkt</h3>
+        <p class="text-muted">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd <span class="text-danger">gubergren</span>, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <p class="large">Ich bin größer geschrieben.</p>
+        <p>Ich bin normal geschrieben.</p>
+        <p class="small">Ich bin kleiner geschrieben</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h4>Formular</h4>
+        </div>
+        <div class="row">
+            <form>
+                <div class="row">
+                    <label for="vorname">Vorname</label>
+                    <input type="text" class="input" name="vorname" id="vorname" placeholder="Vorname">
+                </div>
+                <div class="row">
+                    <label for="nachname">Nachname</label>
+                    <input type="text" class="input disabled" name="nachname" id="nachname" placeholder="Nachname">
+                </div>
+                <div class="row">
+                    <label for="description">Beschreibung</label>
+                    <textarea class="input" name="description" id="description" placeholder="Beschreibung"></textarea>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary" name="submit">Absenden</button>
+                    <button type="submit" class="btn btn-info" name="submit">Speichern</button>
+                    <button type="submit" class="btn btn-success" name="submit">Aktualisieren</button>
+                    <button type="submit" class="btn btn-danger" name="submit">Löschen</button>
+                    <button type="reset" class="btn btn-secondary disabled" name="submit">Zurücksetzen</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../assets/app.js"></script>
+    </body>
+</html>

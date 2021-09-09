@@ -17,4 +17,9 @@
     2.  [Trennung von Inhalt und Design](./Docs/css.md#trennung-von-inhalt-und-design)
     3.  [Aufbau von CSS](./Docs/css.md#aufbau-von-css)
     4.  [CSS in HTML einbinden](./Docs/css.md#css-in-html-einbinden)
+    
+4.  [SASS](./Docs/scss.md)
+    1.  [Was ist SASS?](./Docs/scss.md#was-ist-sass)
+    2.  [Variablen](./Docs/scss.md#variablen)
+    3.  [Schleifenfunktionen](./Docs/scss.md#schleifenfunktionen)
 
