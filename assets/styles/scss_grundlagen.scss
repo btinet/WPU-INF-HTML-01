@@ -72,7 +72,22 @@ $breakpoints:(
         "l"   : 1080px,
 );
 
+$display-styles: inline-block inline block flex;
+$known-prefixes: webkit, moz, ms, o;
+
+$columns:   12;
+
 // Mixins
+@mixin prefix($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if not index($known-prefixes, $prefix) {
+      @warn "Unknown prefix #{$prefix}.";
+    }
+
+    -#{$prefix}-#{$property}: $value;
+  }
+  #{$property}: $value;
+}
 // Fonts
 @mixin font-weight($amount){
   font-weight: $amount;
@@ -130,7 +145,7 @@ $breakpoints:(
 
 // HTML tags
 // General
-*{
+*, ::after, ::before{
   box-sizing: border-box;
   outline: none;
 }
@@ -198,6 +213,7 @@ textarea{
 }
 
 .btn{
+  display: inline-block;
   box-shadow: none;
   font-family: $font-family-sans;
   font-size: .9rem;
@@ -237,31 +253,74 @@ textarea{
     max-width: map-get($breakpoints,"xs")!important;
     @include margin-x(0,0);
   }
+
+    @for $i from 1 through $columns {
+      .row-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+
 }
-@media (min-width: map-get($breakpoints,"xs")) and (max-width: map-get($breakpoints,"s")) {
+@media (min-width: map-get($breakpoints,"xs")) {
   .container{
     max-width: map-get($breakpoints,"xs")!important;
   }
+
+    @for $i from 1 through $columns {
+      .row-sm-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+
 }
 
-@media (min-width: map-get($breakpoints,"s")) and (max-width: map-get($breakpoints,"m")) {
+@media (min-width: map-get($breakpoints,"s")) {
   .container{
     max-width: map-get($breakpoints,"s")!important;
   }
+
+    @for $i from 1 through $columns {
+      .row-md-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+
 }
-@media (min-width: map-get($breakpoints,"m")) and (max-width: map-get($breakpoints,"l")) {
+@media (min-width: map-get($breakpoints,"m")) {
   .container{
     max-width: map-get($breakpoints,"m")!important;
   }
+
+    @for $i from 1 through $columns {
+      .row-lg-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+
 }
 @media (min-width: map-get($breakpoints,"l")) {
   .container{
     max-width: map-get($breakpoints,"l")!important;
   }
+
+    @for $i from 1 through $columns {
+      .row-xl-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+
 }
 .row{
   @include margin-top($space*3);
+  display: grid;
+  grid-gap: 1rem;
 }
+
+.col{
+  display: inline-block;
+  align-content: end;
+}
+
 
 // Typography
 // Headings
@@ -315,7 +374,107 @@ p{
   font-size: large;
 }
 
+// Table
+.table, {
+  width: 100%;
+  vertical-align: top;
+  caption-side: bottom;
+  border-collapse: collapse;
+
+  > thead {
+    vertical-align: bottom;
+  }
+
+  > tbody {
+    vertical-align: inherit;
+  }
+
+}
+table{
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: $gray-500;
+  >caption{
+    font-size: small;
+    color: $gray-300;
+  }
+}
+tbody, td, tfoot, th, thead, tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  text-align: left;
+}
+thead{
+  border-bottom: $border solid $gray-100;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+  :not(:last-child) > * {
+    border-bottom: $border solid lighten($gray-100,10);
+  }
+}
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+td,th{
+  @include padding-x($space,$space);
+  @include padding-y($space,$space);
+}
+
 // Utilities
+// Display
+.d-{
+  @each $display-style in $display-styles{
+    &#{$display-style}{
+      @include prefix(display, $display-style, o ms moz);
+    }
+  }
+}
+
+.flex-row{
+  @include prefix(flex-direction,row,$known-prefixes);
+}
+.flex-column{
+  @include prefix(flex-direction,column,$known-prefixes);
+}
+.flex-grow-1{
+  flex-grow: 1;
+}
+.flex-grow-0{
+  flex-grow: 0;
+}
+.flex-shrink-1{
+  flex-shrink: 1;
+}
+.flex-shrink-0{
+  flex-shrink: 0;
+}
+$flex-justifies: start space-around center space-between space-evenly end;
+$flex-aligns: start end baseline center stretch;
+
+@each $flex-justify in $flex-justifies {
+  .justify-content-#{$flex-justify} {
+    @include prefix(justify-content, $flex-justify, $known-prefixes);
+  }
+}
+@each $flex-align in $flex-aligns {
+  .align-items-#{$flex-align}{
+    @include prefix(align-items, $flex-align, $known-prefixes);
+  }
+}
+
+.h-100{
+  height: 100%;
+}
+
 // Margin
 .m{
   &x-{

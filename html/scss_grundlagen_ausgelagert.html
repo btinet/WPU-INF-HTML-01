@@ -45,35 +45,82 @@
         <div class="row">
             <h4>Formular</h4>
         </div>
-        <div class="row">
+        <div class="row row-1">
             <form>
-                <div class="row">
-                    <label for="vorname">Vorname</label>
-                    <input type="text" class="input" name="vorname" id="vorname" placeholder="Vorname">
-                </div>
-                <div class="row">
-                    <label for="nachname">Nachname</label>
-                    <input type="text" class="input disabled" name="nachname" id="nachname" placeholder="Nachname">
+                <div class="row row-1 row-md-2">
+                    <div>
+                        <label for="vorname">Vorname</label>
+                        <input type="text" class="input" name="vorname" id="vorname" placeholder="Vorname">
+                    </div>
+                    <div>
+                        <label for="nachname">Nachname</label>
+                        <input type="text" class="input disabled" name="nachname" id="nachname" placeholder="Nachname">
+                    </div>
                 </div>
                 <div class="row">
                     <label for="description">Beschreibung</label>
                     <textarea class="input" name="description" id="description" placeholder="Beschreibung"></textarea>
                 </div>
                 <div class="row">
+                    <h4>Responsive Grid Row</h4>
+                </div>
+                <div class="row row-2 row-md-3 row-xl-6">
                     <button type="submit" class="btn btn-primary" name="submit">Absenden</button>
                     <button type="submit" class="btn btn-info" name="submit">Speichern</button>
                     <button type="submit" class="btn btn-success" name="submit">Aktualisieren</button>
-                    <button type="submit" class="btn btn-danger" name="submit">Löschen</button>
-                    <button type="reset" class="btn btn-secondary disabled" name="submit">Zurücksetzen</button>
+                    <button type="submit" class="btn btn-danger disabled" name="submit">Löschen</button>
+                    <button type="reset" class="btn btn-secondary" name="submit">Zurücksetzen</button>
+                    <button type="reset" class="btn btn-warning" name="submit">Reset</button>
                 </div>
             </form>
         </div>
-
     </div>
     <div class="container">
         <div class="row">
-
+            <h4>Flex</h4>
         </div>
+        <div class="d-flex justify-content-space-evenly align-items-center py-5">
+            <div><h4 class="mt-0">Cool</h4></div>
+            <div><span class="large">B</span></div>
+        </div>
+        <div class="row">
+            <h4>Tabelle</h4>
+        </div>
+        <div class="row">
+            <table class="table">
+                <caption>Beispieltabelle</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Vorname</th>
+                        <th scope="col">Nachname</th>
+                        <th scope="col">Twitter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Benjamin</td>
+                        <td>Wagner</td>
+                        <td>@wagnerpictures</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Susi</td>
+                        <td>Sorglos</td>
+                        <td>@susisorglos</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Peter</td>
+                        <td>Pan</td>
+                        <td>@peterpan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container py-5">
     </div>
 
     <script type="text/javascript" src="../assets/app.js"></script>
