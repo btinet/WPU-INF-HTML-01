@@ -28,7 +28,8 @@ $theme-colors:(
         "danger":     $red,
         "info":       $teal,
         "dark":       $gray-900,
-        "light":      $gray-100
+        "light":      $gray-100,
+        "white":      $white,
 );
 
 // Fonts
@@ -344,6 +345,7 @@ textarea{
   }
 }
 // Paragraph
+$alignments: start center end;
 p{
   @include margin-y(1.5rem,0);
   &.lead{
@@ -360,18 +362,31 @@ p{
 .text-italic{
   font-style: italic;
 }
-.text-{
+.text{
   @each $name, $value in $theme-colors {
-    &#{$name} {
+    &-#{$name} {
       color: $value;
     }
   }
+  @each $value in $alignments {
+    &-#{$value} {
+      @include prefix(text-align,$value,moz ms o);
+    }
+  }
+
 }
 .small{
   font-size: small;
 }
 .large{
   font-size: large;
+}
+
+// Backgrounds
+@each $name, $value in $theme-colors {
+  .bg-#{$name} {
+    background-color: $value;
+  }
 }
 
 // Table
@@ -482,7 +497,12 @@ $flex-aligns: start end baseline center stretch;
       @include margin-x(auto,auto);
     }
     @for $i from 0 through 5 {
-      &#{$i} {
+      &#{$i},&#{$i}{
+        @include margin-x($space * $i,$space * $i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &content-#{$i} > * {
         @include margin-x($space * $i,$space * $i);
       }
     }
@@ -493,6 +513,11 @@ $flex-aligns: start end baseline center stretch;
     }
     @for $i from 0 through 5 {
       &#{$i} {
+        @include margin-y($space * $i,$space * $i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &content-#{$i} > * {
         @include margin-y($space * $i,$space * $i);
       }
     }
@@ -507,9 +532,20 @@ $flex-aligns: start end baseline center stretch;
       @include margin-y($space * $i,$space * $i);
     }
   }
+  @for $i from 0 through 5 {
+    &-content-#{$i} > * {
+      @include margin-x($space * $i,$space * $i);
+      @include margin-y($space * $i,$space * $i);
+    }
+  }
   &s{
     @for $i from 0 through 5 {
       &-#{$i} {
+        @include margin-left($space*$i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
         @include margin-left($space*$i);
       }
     }
@@ -520,6 +556,11 @@ $flex-aligns: start end baseline center stretch;
         @include margin-right($space*$i);
       }
     }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
+        @include margin-right($space*$i);
+      }
+    }
   }
   &t{
     @for $i from 0 through 5 {
@@ -527,10 +568,20 @@ $flex-aligns: start end baseline center stretch;
         @include margin-top($space*$i);
       }
     }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
+        @include margin-top($space*$i);
+      }
+    }
   }
   &b{
     @for $i from 0 through 5 {
       &-#{$i} {
+        @include margin-bottom($space*$i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
         @include margin-bottom($space*$i);
       }
     }
@@ -544,10 +595,20 @@ $flex-aligns: start end baseline center stretch;
         @include padding-x($space * $i,$space * $i);
       }
     }
+    @for $i from 0 through 5 {
+      &content-#{$i} > * {
+        @include padding-x($space * $i,$space * $i);
+      }
+    }
   }
   &y-{
     @for $i from 0 through 5 {
       &#{$i} {
+        @include padding-y($space * $i,$space * $i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &content-#{$i} > * {
         @include padding-y($space * $i,$space * $i);
       }
     }
@@ -558,9 +619,20 @@ $flex-aligns: start end baseline center stretch;
       @include padding-y($space * $i,$space * $i);
     }
   }
+  @for $i from 0 through 5 {
+    &-content-#{$i} > * {
+      @include padding-x($space * $i,$space * $i);
+      @include padding-y($space * $i,$space * $i);
+    }
+  }
   &s{
     @for $i from 0 through 5 {
       &-#{$i} {
+        @include padding-left($space*$i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
         @include padding-left($space*$i);
       }
     }
@@ -571,6 +643,11 @@ $flex-aligns: start end baseline center stretch;
         @include padding-right($space*$i);
       }
     }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
+        @include padding-right($space*$i);
+      }
+    }
   }
   &t{
     @for $i from 0 through 5 {
@@ -578,10 +655,20 @@ $flex-aligns: start end baseline center stretch;
         @include padding-top($space*$i);
       }
     }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
+        @include padding-top($space*$i);
+      }
+    }
   }
   &b{
     @for $i from 0 through 5 {
       &-#{$i} {
+        @include padding-bottom($space*$i);
+      }
+    }
+    @for $i from 0 through 5 {
+      &-content-#{$i} > * {
         @include padding-bottom($space*$i);
       }
     }
