@@ -8,7 +8,6 @@
 }
 
 html {
-  line-height: 1.25rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -16,7 +15,7 @@ body {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 5rem;
   font-family: "New York", sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -535,6 +534,7 @@ h6 {
 }
 
 p {
+  line-height: 1.25rem;
   margin-top: 1.5rem;
   margin-bottom: 0;
 }
@@ -650,6 +650,8 @@ p.lead {
   vertical-align: top;
   caption-side: bottom;
   border-collapse: collapse;
+  border-spacing: 2px;
+  border-color: #70706c;
 }
 .table > thead {
   vertical-align: bottom;
@@ -657,46 +659,32 @@ p.lead {
 .table > tbody {
   vertical-align: inherit;
 }
-
-table {
-  display: table;
-  border-collapse: separate;
-  box-sizing: border-box;
-  text-indent: initial;
-  border-spacing: 2px;
-  border-color: #70706c;
-}
-table > caption {
+.table > caption {
   font-size: small;
   color: #9c9c94;
 }
-
-tbody, td, tfoot, th, thead, tr {
+.table tbody, .table td, .table tfoot, .table th, .table thead, .table tr {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
   text-align: left;
 }
-
-thead {
+.table thead {
   border-bottom: 1px solid #c6c6ba;
 }
-
-tbody {
+.table tbody {
   display: table-row-group;
   vertical-align: middle;
   border-color: inherit;
 }
-tbody :not(:last-child) > * {
+.table tbody :not(:last-child) > * {
   border-bottom: 1px solid #ddddd6;
 }
-
-td {
+.table td {
   display: table-cell;
   vertical-align: inherit;
 }
-
-td, th {
+.table td, .table th {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0.5rem;
@@ -1493,11 +1481,19 @@ td, th {
 }
 
 #table-1 {
-  background-color: #9c9c94;
+  background-color: #e9e9e4;
 }
 
 #table-1 > tbody > tr:nth-child(odd) {
-  background-color: #cdcdc9;
+  background-color: #f0f0ec;
+}
+
+table:not(.table) {
+  background-color: #ddddd6;
+  border: 1px solid #70706c;
+}
+table:not(.table) th {
+  text-align: left;
 }
 
 /*# sourceMappingURL=scss_grundlagen.css.map */

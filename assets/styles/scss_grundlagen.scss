@@ -151,12 +151,11 @@ $columns:   12;
   outline: none;
 }
 html{
-  line-height: $line-height;
   -webkit-text-size-adjust: 100%;
 }
 body{
   @include margin-x(0,0);
-  @include margin-y(0,0);
+  @include margin-y(0,5rem);
   font-family: $font-family-sans;
   font-size: $font-size-base;
   @include font-weight($font-weight-base);
@@ -347,6 +346,7 @@ textarea{
 // Paragraph
 $alignments: start center end;
 p{
+  line-height: $line-height;
   @include margin-y(1.5rem,0);
   &.lead{
     font-size: larger;
@@ -395,7 +395,8 @@ p{
   vertical-align: top;
   caption-side: bottom;
   border-collapse: collapse;
-
+  border-spacing: 2px;
+  border-color: $gray-500;
   > thead {
     vertical-align: bottom;
   }
@@ -403,46 +404,38 @@ p{
   > tbody {
     vertical-align: inherit;
   }
-
-}
-table{
-  display: table;
-  border-collapse: separate;
-  box-sizing: border-box;
-  text-indent: initial;
-  border-spacing: 2px;
-  border-color: $gray-500;
   >caption{
     font-size: small;
     color: $gray-300;
   }
-}
-tbody, td, tfoot, th, thead, tr {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-  text-align: left;
-}
-thead{
-  border-bottom: $border solid $gray-100;
-}
-tbody {
-  display: table-row-group;
-  vertical-align: middle;
-  border-color: inherit;
-  :not(:last-child) > * {
-    border-bottom: $border solid lighten($gray-100,10);
+  tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    text-align: left;
+  }
+  thead{
+    border-bottom: $border solid $gray-100;
+  }
+  tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    :not(:last-child) > * {
+      border-bottom: $border solid lighten($gray-100,10);
+    }
+  }
+  td {
+    display: table-cell;
+    vertical-align: inherit;
+  }
+
+  td,th{
+    @include padding-x($space,$space);
+    @include padding-y($space,$space);
   }
 }
-td {
-  display: table-cell;
-  vertical-align: inherit;
-}
 
-td,th{
-  @include padding-x($space,$space);
-  @include padding-y($space,$space);
-}
 
 // Utilities
 // Display
@@ -675,10 +668,17 @@ $flex-aligns: start end baseline center stretch;
   }
 }
 
-
 #table-1{
-  background-color: $gray-300;
+  background-color: lighten($gray-100,15%);
 }
 #table-1 > tbody > tr:nth-child(odd){
-  background-color: lighten($gray-300,20%);
+  background-color: lighten($gray-100,18%);
+}
+
+table:not(.table){
+  background-color: lighten($gray-100,10%);
+  border: 1px solid $gray-500;
+  th{
+    text-align: left;
+  }
 }

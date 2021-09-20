@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@ibm/plex": "^5.2.1"
+    "@ibm/plex": "^5.2.1",
+    "highlight.js": "^11.2.0"
   }
 }

@@ -1,4 +1,6 @@
 
+
+
 (function () {
     'use strict'
 
@@ -10,4 +12,5 @@
         .forEach(function ($button) {
             $button.setAttribute("disabled","disabled");
         })
+    hljs.highlightAll();
 })()
