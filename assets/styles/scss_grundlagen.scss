@@ -674,3 +674,11 @@ $flex-aligns: start end baseline center stretch;
     }
   }
 }
+
+
+#table-1{
+  background-color: $gray-300;
+}
+#table-1 > tbody > tr:nth-child(odd){
+  background-color: lighten($gray-300,20%);
+}

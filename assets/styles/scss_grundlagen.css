@@ -1492,4 +1492,12 @@ td, th {
   padding-bottom: 2.5rem;
 }
 
+#table-1 {
+  background-color: #9c9c94;
+}
+
+#table-1 > tbody > tr:nth-child(odd) {
+  background-color: #cdcdc9;
+}
+
 /*# sourceMappingURL=scss_grundlagen.css.map */
