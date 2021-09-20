@@ -1,0 +1,11 @@
+h1 { color:red; font-size:48px; }
+#table1 {  
+ background-color:white;  
+ border:20px dotted orange; 
+ float:left;
+}
+#table2 {  
+ background-color:silver;  
+ border:2px dotted blue; 
+ float:right;
+}  
