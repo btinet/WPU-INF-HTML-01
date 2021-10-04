@@ -1488,6 +1488,15 @@ p.lead {
   background-color: #f0f0ec;
 }
 
+#table-2 {
+  background-color: #4da2ff;
+  color: #f5f5ef;
+}
+
+#table-2 > tbody > tr:nth-child(odd) {
+  background-color: #5caaff;
+}
+
 table:not(.table) {
   background-color: #ddddd6;
   border: 1px solid #70706c;

@@ -16,7 +16,7 @@
             <h1>Tabellen</h1>
             <h3>Tabelle über Klasse angesprochen</h3>
             <table class="table">
-                <caption>Beispieltabelle</caption>
+                <caption>Tabelle mit CSS-Klasse</caption>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -96,9 +96,9 @@
 }
                 </code>
             </pre>
-            <h3>Tabelle über ID angesprochen</h3>
+            <h3>Tabelle über ID <span class="text-primary">#table-1</span> angesprochen</h3>
             <table class="table" id="table-1">
-                <caption>Beispieltabelle</caption>
+                <caption>Tabelle mit ID <span class="text-emphasised">#table-1</span></caption>
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -140,9 +140,53 @@
 }
                 </code>
             </pre>
+            <h3>Tabelle über ID <span class="text-primary">#table-2</span> angesprochen</h3>
+            <table class="table" id="table-2">
+                <caption>Tabelle mit ID <span class="text-emphasised">#table-2</span></caption>
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Vorname</th>
+                    <th scope="col">Nachname</th>
+                    <th scope="col">Twitter</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Benjamin</td>
+                    <td>Wagner</td>
+                    <td>@wagnerpictures</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Susi</td>
+                    <td>Sorglos</td>
+                    <td>@susisorglos</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Peter</td>
+                    <td>Pan</td>
+                    <td>@peterpan</td>
+                </tr>
+                </tbody>
+            </table>
+            <h4>CSS Code</h4>
+            <pre>
+                <code class="language-css">
+#table-2{
+  background-color: lighten($blue,15%);
+  color: $white;
+}
+#table-2 > tbody > tr:nth-child(odd){
+  background-color: lighten($blue,18%);
+}
+                </code>
+            </pre>
             <h3>Tabelle über Tag angesprochen</h3>
             <table>
-                <caption>Beispieltabelle</caption>
+                <caption>Tabelle ohne ID oder CSS-Klasse</caption>
                 <thead>
                 <tr>
                     <th scope="col">#</th>

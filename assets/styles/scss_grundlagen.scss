@@ -675,6 +675,14 @@ $flex-aligns: start end baseline center stretch;
   background-color: lighten($gray-100,18%);
 }
 
+#table-2{
+  background-color: lighten($blue,15%);
+  color: $white;
+}
+#table-2 > tbody > tr:nth-child(odd){
+  background-color: lighten($blue,18%);
+}
+
 table:not(.table){
   background-color: lighten($gray-100,10%);
   border: 1px solid $gray-500;
