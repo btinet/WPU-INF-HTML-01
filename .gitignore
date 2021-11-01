@@ -50,3 +50,5 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+/211004-WPK-INF-Benjamin-Wagner.zip
+*.zip

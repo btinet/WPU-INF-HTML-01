@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <link href="../assets/styles/scss_grundlagen.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container">
+        <h1>Hier kommen Sie nur mit Passwort rein! ;-)</h1>
+    </div>
+    <div class="container mb-5">
+        <div class="row">
+            <h4>Alters- und Passwortabfrage</h4>
+            <h5 class="text-center mb-3">Sind Sie über 18 Jahre alt?</h5>
+        </div>
+        <div class="d-flex justify-content-space-evenly align-items-center">
+            <form id="age-form">
+                <button type="submit" value="true" class="btn btn-success age-button">Ja, über 18</button>
+                <button type="submit" value="false" class="btn btn-danger age-button">Nein, unter 18</button>
+                <div id="password-input" style="display: none">
+                    <div class="row">
+                        <label for="password" class="text">Passwort</label>
+                        <input type="password" class="input" id="password" placeholder="Passwort" name="password" required>
+                        <button type="submit" class="btn btn-primary password-submit-button">Absenden</button>
+                    </div>
+                    <div class="row">
+                        <span class="text-emphasised" id="password-result"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row row-1">
+            <div id="result" class="text-emphasised"></div>
+        </div>
+
+    <script type="text/javascript" src="../assets/app.js"></script>
+    <script type="text/javascript">
+        (function () {
+
+            // Definiere alle Elemente
+
+            let $buttons = document.querySelectorAll('#age-form .age-button');              // Alle Abfrage-Buttons
+            let $passwordInput = document.querySelector('#password-input');                 // Passwort-Division
+            let $passwordResult = document.querySelector('#password-result');               // Passwort Warntext
+            let $passwordInputField = document.querySelector('#password');                  // Passwort Input
+            let $passwordSubmitButton = document.querySelector('.password-submit-button');  // Passwort Submit Button
+
+            let $secret = "traumtaenzer";                                                   // Geheimes Passwort
+
+            Array.prototype.slice.call($buttons)                                    // Alle Buttons verarbeiten
+                .forEach(function ($button) {                                       // für jeden Button...
+                    $button.addEventListener ('click', function (evt) {             // Mausklick abhören
+                        evt.preventDefault();                                       // Standardverhalten stoppen
+                        if(JSON.parse($button.value)){                              // Wenn "Ja"...
+                            $passwordInput.setAttribute('style','');                // Passwort-Division zeigen
+                    } else {                                                        // ansonsten...
+                            $passwordInput.setAttribute('style','display: none');   // Passwort-Division verbergen
+                        }
+                    });
+                })
+
+            $passwordSubmitButton.addEventListener ('click', function (evt) {
+                evt.preventDefault();
+                if($passwordInputField.value !== ""){
+                    if($secret === $passwordInputField.value){
+                        $passwordSubmitButton.innerHTML = "Bitte warten";
+                        setTimeout(function (){
+                            document.location.href="./tabellen.html";
+                        },2000);
+                    } else {
+                        $passwordResult.innerHTML =
+                            "Dein Passwort lautet: <span class='text-primary'>"
+                            + $passwordInputField.value
+                            +"</span>.<br>Dies ist leider falsch!";
+                    }
+                }
+            })
+
+        })()
+    </script>
+    </body>
+</html>

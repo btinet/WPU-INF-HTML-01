@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <link href="../assets/styles/scss_grundlagen.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container">
+        <h1>Hier kommen Sie nur mit Passwort rein! ;-)</h1>
+    </div>
+    <div class="container mb-5">
+        <div class="row">
+            <h4>Alters- und Passwortabfrage</h4>
+            <h5 class="text-center mb-3">Sind Sie über 18 Jahre alt?</h5>
+        </div>
+        <div class="d-flex justify-content-space-evenly align-items-center">
+            <button class="btn btn-success" id="yes">Ja, über 18</button>
+            <button class="btn btn-danger" id="no">Nein, unter 18</button>
+        </div>
+        <div class="row row-1">
+            <div id="result" class="text-center text-emphasised"></div>
+        </div>
+
+    <script type="text/javascript" src="../assets/app.js"></script>
+    <script type="text/javascript">
+        (function () {
+
+            // Fetch all elements with class name ".disabled"
+            let $btnYes = document.querySelector('#yes')
+            let $btnNo = document.querySelector('#no')
+            let $result = document.querySelector('#result')
+            let $password = "Traumtaenzer";
+
+            $btnYes.addEventListener("click", ageCheckTrue);
+            $btnNo.addEventListener("click", ageCheckFalse);
+
+            function ageCheck($answer)
+            {
+                if ($answer){
+                    $result.innerHTML = "Sie sind über 18 Jahre alt!";
+                    $result.classList.add("text-success");
+                    $result.classList.remove("text-danger");
+                    geheim();
+                } else {
+                    $result.innerHTML = "Sie sind zu Jung!";
+                    $result.classList.add("text-danger");
+                    $result.classList.remove("text-success");
+                }
+            }
+
+            function ageCheckTrue() {
+                $result.innerHTML = "Sie sind über 18 Jahre alt!";
+                $result.classList.add("text-success");
+                $result.classList.remove("text-danger");
+                geheim();
+            }
+
+            function ageCheckFalse() {
+                $result.innerHTML = "Sie sind zu Jung!";
+                $result.classList.add("text-danger");
+                $result.classList.remove("text-success");
+            }
+
+            function geheim(){
+                let $eingabe = window.prompt("Bitte geben Sie das Passwort ein!","");
+                if ($eingabe !== $password){
+                    alert ("Falsches Passwort!");
+                    $result.innerHTML = "Sie sind alt genug, wissen aber das Passwort nicht!";
+                    $result.classList.add("text-danger");
+                    $result.classList.remove("text-success");
+                } else {
+                    $result.innerHTML = "Sie sind über 18 Jahre und haben das Passwort gewusst!<br>Sie werden in 2 Sekunden weitergeleitet!";
+                    $result.classList.add("text-success");
+                    $result.classList.remove("text-danger");
+                    setTimeout(function() {
+                        console.log("Callback Funktion wird aufgerufen");
+                        document.location.href="scss_grundlagen_ausgelagert.html";
+                    }, 3000);
+
+
+                }
+            }
+
+
+
+        })()
+    </script>
+    </body>
+</html>
