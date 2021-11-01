@@ -51,28 +51,32 @@
 
             let $secret = "traumtaenzer";                                                   // Geheimes Passwort
 
+            function printTime($seconds){
+                $passwordSubmitButton.innerHTML = $seconds + " Sekunde(n) noch.";
+            }
+
             Array.prototype.slice.call($buttons)                                    // Alle Buttons verarbeiten
                 .forEach(function ($button) {                                       // für jeden Button...
                     $button.addEventListener ('click', function (evt) {             // Mausklick abhören
                         evt.preventDefault();                                       // Standardverhalten stoppen
                         if(JSON.parse($button.value)){                              // Wenn "Ja"...
-                            $passwordInput.setAttribute('style','');                // Passwort-Division zeigen
+                            $passwordInput.setAttribute('style','');                // Passwort-Div zeigen
                     } else {                                                        // ansonsten...
-                            $passwordInput.setAttribute('style','display: none');   // Passwort-Division verbergen
+                            $passwordInput.setAttribute('style','display: none');   // Passwort-Div verbergen
                         }
                     });
                 })
 
-            $passwordSubmitButton.addEventListener ('click', function (evt) {
-                evt.preventDefault();
-                if($passwordInputField.value !== ""){
-                    if($secret === $passwordInputField.value){
+            $passwordSubmitButton.addEventListener ('click', function (evt) {       // Passwort-Submit-Button abhören
+                evt.preventDefault();                                               // Standardverhalten unterbinden
+                if($passwordInputField.value !== ""){                               // Wenn Eingabe nicht leer
+                    if($secret === $passwordInputField.value){                      // Wenn Passwort korrekt
                         $passwordSubmitButton.innerHTML = "Bitte warten";
-                        setTimeout(function (){
-                            document.location.href="./tabellen.html";
+                        setTimeout(function (){                                     // zwei Sekunden warten
+                            document.location.href="./tabellen.html";               // Auf geheime Seite weiterleiten
                         },2000);
-                    } else {
-                        $passwordResult.innerHTML =
+                    } else {                                                        // ...ansonsten...
+                        $passwordResult.innerHTML =                                 // Auf falsches Passwort hinweisen
                             "Dein Passwort lautet: <span class='text-primary'>"
                             + $passwordInputField.value
                             +"</span>.<br>Dies ist leider falsch!";
