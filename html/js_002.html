@@ -36,12 +36,16 @@
         <div class="row row-1">
             <div id="result" class="text-emphasised"></div>
         </div>
+        <div id="for-schleife-example" class="row row-2 row-sm-2 row-md-3 row-lg-6 p-content-3 text-center">
+
+        </div>
 
     <script type="text/javascript" src="../assets/app.js"></script>
     <script type="text/javascript">
         (function () {
 
             // Definiere alle Elemente
+
 
             let $buttons = document.querySelectorAll('#age-form .age-button');              // Alle Abfrage-Buttons
             let $passwordInput = document.querySelector('#password-input');                 // Passwort-Division
@@ -51,7 +55,42 @@
 
             let $secret = "traumtaenzer";                                                   // Geheimes Passwort
 
-            function printTime($seconds){
+            // Container definieren
+            let $forContainer = document.querySelector('#for-schleife-example');
+            // Variable für den Hintergrund/Schriftfarbe initiieren
+            let $bg = '';
+            // x Durchläufe
+            for(let $i=1; $i<=12;$i++)
+            {
+                // Wenn $i ist gerade
+                if($i%2)
+                {
+                    // Heller Hintergrund
+                    $bg = 'bg-light';
+                }
+                // Ansonsten (falls $i ist ungerade)
+                else
+                {
+                    // Dunkler Hintergrund, helle Schriftfarbe
+                    $bg = 'bg-dark text-light';
+                }
+                // Variable mit Elementinhalt initiieren,
+                // Hintergrund/Schriftfarbe per CSS angeben,
+                // Durchlaufnummer eintragen
+                let $html = '<div class="'+$bg+'">Durchlauf '+$i+'</div>';
+                // Funktion write() aufrufen
+                write($forContainer,$html);
+            }
+
+            // Funktion zum Schreiben generierter Elemente in einen zuvor definierten Container
+            function write($container, $element)
+            {
+                // Element dem Container hinzufügen
+                $container.innerHTML += $element;
+            }
+
+            function printTime($seconds)
+            {
                 $passwordSubmitButton.innerHTML = $seconds + " Sekunde(n) noch.";
             }
 

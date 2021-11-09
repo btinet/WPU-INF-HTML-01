@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <link href="../assets/styles/scss_grundlagen.css" type="text/css" rel="stylesheet">
+        <link href="../assets/highlight.js/styles/codepen-embed.min.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container">
+        <h1>Anwendungsbeispiel "for-Schleife"</h1>
+        <div id="for-schleife-example" class="row row-2 row-sm-2 row-md-3 row-lg-6 p-content-3 text-center"></div>
+        <div class="row row-1 py-5">
+            <h2>Code für obiges Beispiel</h2>
+            <pre>
+                <code class="language-java">
+            (function () {
+
+    // Container definieren
+    let $forContainer = document.querySelector('#for-schleife-example');
+    // Variable für den Hintergrund/Schriftfarbe initiieren
+    let $bg = '';
+    // x Durchläufe
+    for(let $i=1; $i<=12;$i++)
+    {
+        // Wenn $i ist gerade
+        if($i%2)
+        {
+            // Heller Hintergrund
+            $bg = 'bg-light';
+        }
+        // Ansonsten (falls $i ist ungerade)
+        else
+        {
+            // Dunkler Hintergrund, helle Schriftfarbe
+            $bg = 'bg-dark text-light';
+        }
+        // Variable mit Elementinhalt initiieren,
+        // Hintergrund/Schriftfarbe per CSS angeben,
+        // Durchlaufnummer eintragen
+        let $html = '&lt;div class="'+$bg+'">Durchlauf '+$i+'&lt;/div>';
+        // Funktion write() aufrufen
+        write($forContainer,$html);
+    }
+
+    // Funktion zum Schreiben generierter Elemente in einen zuvor definierten Container
+    function write($container, $element)
+    {
+        // Element dem Container hinzufügen
+        $container.innerHTML += $element;
+    }
+
+})()
+                </code>
+            </pre>
+
+        </div>
+    </div>
+    <script src="../assets/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript" src="../assets/app.js"></script>
+    <script type="text/javascript">
+        (function () {
+
+            // Container definieren
+            let $forContainer = document.querySelector('#for-schleife-example');
+            // Variable für den Hintergrund/Schriftfarbe initiieren
+            let $bg = '';
+            // x Durchläufe
+            for(let $i=1; $i<=12;$i++)
+            {
+                // Wenn $i ist gerade
+                if($i%2)
+                {
+                    // Heller Hintergrund
+                    $bg = 'bg-light';
+                }
+                // Ansonsten (falls $i ist ungerade)
+                else
+                {
+                    // Dunkler Hintergrund, helle Schriftfarbe
+                    $bg = 'bg-dark text-light';
+                }
+                // Variable mit Elementinhalt initiieren,
+                // Hintergrund/Schriftfarbe per CSS angeben,
+                // Durchlaufnummer eintragen
+                let $html = '<div class="'+$bg+'">Durchlauf '+$i+'</div>';
+                // Funktion write() aufrufen
+                write($forContainer,$html);
+            }
+
+            // Funktion zum Schreiben generierter Elemente in einen zuvor definierten Container
+            function write($container, $element)
+            {
+                // Element dem Container hinzufügen
+                $container.innerHTML += $element;
+            }
+
+        })()
+    </script>
+    </body>
+</html>

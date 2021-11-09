@@ -12,5 +12,5 @@
         .forEach(function ($button) {
             $button.setAttribute("disabled","disabled");
         })
-    // hljs.highlightAll();
+    hljs.highlightAll();
 })()
