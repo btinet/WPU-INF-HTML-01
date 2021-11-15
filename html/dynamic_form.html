@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+        <meta name="title" content="Titel der Website">
+        <meta name="description" content="Beschreibung der Website">
+        <title>Titel der Website</title>
+        <link href="../assets/styles/scss_grundlagen.css" type="text/css" rel="stylesheet">
+        <link href="../assets/highlight.js/styles/codepen-embed.min.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container">
+        <h1>Dynamisches Formular</h1>
+
+        <form class="row row-1 py-5 mb-content-3" id="dyna-form" method="get">
+            <div class="col">
+                <label for="first-name">Vorname</label>
+                <input class="input" type="text" placeholder="Vorname" name="firstName" id="first-name"required>
+            </div>
+            <div class="col">
+                <label for="last-name">Nachname</label>
+                <input class="input" type="text" placeholder="Nachname" name="firstName" id="last-name" required>
+            </div>
+            <div class="d-flex justify-content-start">
+                    <input class="input" type="checkbox" placeholder="Firma" name="isCompany" id="is-company">
+                <label class="checkbox-label" for="is-company">Firma</label>
+            </div>
+            <fieldset class="row mb-content-3 mt-0" id="company-fieldset" style="display: none">
+                <div class="col">
+                    <label for="company-name">Firmenname</label>
+                    <input class="input" type="text" placeholder="Firmenname" name="companyName" id="company-name">
+                </div>
+                <div class="col">
+                    <label for="company-addition">Firmenzusatz</label>
+                    <input class="input" type="text" placeholder="Firmenzusatz" name="CompanyAddition" id="company-addition">
+                </div>
+            </fieldset>
+            <div class="col">
+                <button id="form-submit" type="submit" class="btn disabled btn-primary">Absenden</button>
+            </div>
+        </form>
+
+        <div id="for-schleife-example" class="row row-2 row-sm-2 row-md-3 row-lg-6 p-content-3 text-center"></div>
+        <div class="row row-1 py-5">
+            <h2>Code für obiges Beispiel</h2>
+            <pre>
+                <code class="language-java">
+(function () {
+
+    let $isCompany = document.querySelector('#is-company');
+    let $companyFieldset = document.querySelector('#company-fieldset');
+    let $submitButton = document.querySelector('#form-submit');
+    let $formInputFields = document.querySelectorAll('input');
+
+
+    $isCompany.addEventListener ('click', function (evt) {
+        if($isCompany.checked){
+            $companyFieldset.style.display ="grid";
+        } else {
+            $companyFieldset.style.display ="none";
+        }
+    });
+
+    Array.prototype.slice.call($formInputFields)
+        .forEach(function ($field) {
+            $field.addEventListener ('change', function (evt) {
+                let $i = 0;
+                validateForm($i);
+            });
+        })
+
+    function validateForm($i){
+        Array.prototype.slice.call($formInputFields)
+            .forEach(function ($field) {
+                    if($field.value === "" && $field.hasAttribute('required')){
+                        $i = 1;
+                    }
+            })
+        if($i === 1){
+            $submitButton.classList.add('disabled');
+        } else {
+            $submitButton.classList.remove('disabled');
+        }
+    }
+})()
+                </code>
+            </pre>
+
+        </div>
+    </div>
+    <script src="../assets/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript" src="../assets/app.js"></script>
+    <script type="text/javascript">
+        (function () {
+
+            let $isCompany = document.querySelector('#is-company');
+            let $companyFieldset = document.querySelector('#company-fieldset');
+            let $submitButton = document.querySelector('#form-submit');
+            let $formInputFields = document.querySelectorAll('input');
+
+
+            $isCompany.addEventListener ('click', function (evt) {
+                if($isCompany.checked){
+                    $companyFieldset.style.display ="grid";
+                } else {
+                    $companyFieldset.style.display ="none";
+                }
+            });
+
+            Array.prototype.slice.call($formInputFields)
+                .forEach(function ($field) {
+                    $field.addEventListener ('change', function (evt) {
+                        let $i = 0;
+                        validateForm($i);
+                    });
+                })
+
+            function validateForm($i){
+                Array.prototype.slice.call($formInputFields)
+                    .forEach(function ($field) {
+                            if($field.value === "" && $field.hasAttribute('required')){
+                                $i = 1;
+                            }
+                    })
+                if($i === 1){
+                    $submitButton.classList.add('disabled');
+                } else {
+                    $submitButton.classList.remove('disabled');
+                }
+            }
+        })()
+    </script>
+    </body>
+</html>
