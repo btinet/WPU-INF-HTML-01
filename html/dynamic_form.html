@@ -20,7 +20,7 @@
             </div>
             <div class="col">
                 <label for="last-name">Nachname</label>
-                <input class="input" type="text" placeholder="Nachname" name="firstName" id="last-name" required>
+                <input class="input" type="text" placeholder="Nachname" name="lastName" id="last-name" required>
             </div>
             <div class="d-flex justify-content-start">
                     <input class="input" type="checkbox" placeholder="Firma" name="isCompany" id="is-company">
@@ -64,11 +64,13 @@
 
     Array.prototype.slice.call($formInputFields)
         .forEach(function ($field) {
-            $field.addEventListener ('change', function (evt) {
-                let $i = 0;
-                validateForm($i);
-            });
+            let $i = 0;
+            addMultipleEventListener($field,['keyup','change','cut','click','focus'],validateForm)
         })
+
+    function addMultipleEventListener(element, events, handler) {
+        events.forEach(e => element.addEventListener(e, handler))
+    }
 
     function validateForm($i){
         Array.prototype.slice.call($formInputFields)
@@ -81,6 +83,7 @@
             $submitButton.classList.add('disabled');
         } else {
             $submitButton.classList.remove('disabled');
+            $submitButton.removeAttribute('disabled');
         }
     }
 })()
@@ -110,11 +113,13 @@
 
             Array.prototype.slice.call($formInputFields)
                 .forEach(function ($field) {
-                    $field.addEventListener ('change', function (evt) {
-                        let $i = 0;
-                        validateForm($i);
-                    });
+                    let $i = 0;
+                    addMultipleEventListener($field,['keyup','change','cut','click','focus'],validateForm)
                 })
+
+            function addMultipleEventListener(element, events, handler) {
+                events.forEach(e => element.addEventListener(e, handler))
+            }
 
             function validateForm($i){
                 Array.prototype.slice.call($formInputFields)
@@ -127,6 +132,7 @@
                     $submitButton.classList.add('disabled');
                 } else {
                     $submitButton.classList.remove('disabled');
+                    $submitButton.removeAttribute('disabled');
                 }
             }
         })()
